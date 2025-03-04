@@ -1,0 +1,33 @@
+= Instalando node.js
+    + npm install -g sass
+
+= Creando la base de datos con nodejs y express
+= instalar node en su pagina oficial
+= instalar node en el proyecto:
+    + npm init -y
+
+= Instalar las librerias:
+    + npm i dotenv express bcryptjs cookie-parser jsonwebtoken
+
+dotenv: Para Genera variables de entorno, que no estaran a la vista del usuario final (.env)
+express: Para la conexion de servidor-cliente
+bcryptjs: Para la encriptacion de datos
+cookie-parser: Para la lectura de cookies
+jsonwebtoken:Para generar tokens
+
+= Instalar para el ambiente de desarrollo: Solo para pruebas de desarrollo y no para subir a internet
+    + npm i nodemon --save-dev
+
+
+= En packaje.json se coloca:
+    "type": "module" para usar import en la libreria, sin colocar import
+    "scripts": {
+        "dev": "nodemon --exec node app/index.js"
+    },
+    
+= (OPCIONAL) Si tiene problemas de puertos - Instalar el cors para que el navegador no
+bloquee las solicitudes entre distintos orígenes si no tienes configurado CORS (Cross-Origin Resource Sharing) en tu backend.
+    + npm install cors
+
+= Para reiniciar el servidor-despues de npm run dev colocar
+    + rs
