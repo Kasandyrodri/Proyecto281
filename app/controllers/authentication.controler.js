@@ -1,6 +1,7 @@
 import bcryptjs from "bcryptjs"; // Para encriptar los datos
 import jsonwebtoken from "jsonwebtoken"; // Para generar token
 import dotenv from "dotenv"; // Genera variables de entorno, que no estaran a la vista del usuario final
+import { enviarMailVerificacion } from "../services/mail.service.js";
 
 // Para acceder a las variables de entorno:
 dotenv.config();
@@ -9,7 +10,7 @@ export const usuarios = [{
     nombre: 'Yoel',
     paterno: 'Ticona',
     materno: 'Laura',
-    correo: 'yoelticonalaura@gmail.com',
+    correo: 'yoelticonalaura1@gmail.com',
     fecha_nacimiento: '2001-04-18',
     pais: 'Bolivia',
     ciudad: 'La Paz',
@@ -90,6 +91,9 @@ async function registro(req, res) {
         const salt = await bcryptjs.genSalt(5);
         const hashPassword = await bcryptjs.hash(contrasenia, salt);
 
+        // Enviar el email de verificacion al cliente
+        //const email =  await enviarMailVerificacion(correo, "TOKEN DE PRUEBA");
+
         // Creando el nuevo usuario
         const nuevoUsuario = {
             nombre, paterno, materno,
@@ -99,7 +103,7 @@ async function registro(req, res) {
         }
         usuarios.push(nuevoUsuario);
         console.log("USUARIOS:", usuarios);
-        return res.status(201).send({ status: "Accept", message: `Usuario ${nuevoUsuario.nombre} creado`, redirect: "/" });
+        return res.status(201).send({ status: "ok", message: `Usuario ${nuevoUsuario.nombre} creado`, redirect: "/" });
     }
 
 }

@@ -61,11 +61,13 @@
                     <input type="password" name="constrasenia" id="constrasenia" required>
                     <div class="underline"></div>
                     <label for="constrasenia">Contraseña</label>
+                    <p class="error escondido" id="errorMensaje2">Validacion de contraseña</p>
                 </div>
                 <div class="input-data">
                     <input type="password" name="repite_contrasenia" id="repite_contrasenia" required>
                     <div class="underline"></div>
                     <label for="repite_contrasenia">Repite la contrasenia</label>
+                    <p class="error escondido" id="errorMensaje">Las contraseñas no coinciden</p>
                 </div>
             </div>
             <p class="error escondido">Error al iniciar sesión</p>
@@ -77,6 +79,7 @@
         </div>
         </form>
     </div>
+    <script src="validacionesContrasenia.js"></script>
     <script src="registro.js"></script>
 </body>
 

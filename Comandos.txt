@@ -31,3 +31,11 @@ bloquee las solicitudes entre distintos orígenes si no tienes configurado CORS 
 
 = Para reiniciar el servidor-despues de npm run dev colocar
     + rs
+= Para ejecutar el servidor =
+    + npm run dev
+
+= Para enviar emails
+    + npm i nodemailer
+================================
+PARA CORRER EL CODIGO CON TODAS LAS DEPENDECIAS
+    + npm install

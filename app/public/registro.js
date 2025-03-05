@@ -13,8 +13,6 @@ document.getElementById("registro-formulario").addEventListener("submit", async 
     const contrasenia_form = document.getElementById("constrasenia").value;
     const verifica_contrasenia_form = document.getElementById("repite_contrasenia").value;
 
-    console.log(nombre);
-
     // Conectando con el backend
     const res = await fetch("http://localhost:5000/api/registro", {
         method: "POST",
