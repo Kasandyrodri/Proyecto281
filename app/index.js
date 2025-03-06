@@ -14,7 +14,7 @@ import {methods as authorization} from "./middlewares/authorization.js"
 
 // Servidor //
 const app = express();
-app.set("port", 5000); // Conexion para el puerto
+app.set("port", 4000); // Conexion para el puerto
 app.listen(app.get("port")); // Escucha del puerto
 console.log("servidor corriendo en puerto", app.get("port")); // prueba
 

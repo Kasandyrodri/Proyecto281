@@ -14,7 +14,7 @@ document.getElementById("registro-formulario").addEventListener("submit", async 
     const verifica_contrasenia_form = document.getElementById("repite_contrasenia").value;
 
     // Conectando con el backend
-    const res = await fetch("http://localhost:5000/api/registro", {
+    const res = await fetch("http://localhost:4000/api/registro", {
         method: "POST",
         headers:{
             "Content-Type" : "application/json"
