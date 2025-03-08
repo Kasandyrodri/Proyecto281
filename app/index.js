@@ -24,13 +24,26 @@ app.use(express.json()); // Para habilitar los JSON
 app.use(cookieParser()); // Para habilitar la lectura de las cookies
 
 // ===== Definir Rutas ===== // // Se coloca __dirname ya que pusimos type: "models"
-app.get("/", authorization.soloPublico, (req, res) => res.sendFile(__dirname + "/pages/login.html")); //endpoint: request, response
+app.get("/",authorization.soloPublico,(req,res)=>res.sendFile(__dirname+"/pages/index.html"));//para la pagina principal
+app.get("/login", authorization.soloPublico, (req, res) => res.sendFile(__dirname + "/pages/login.html")); //endpoint: request, response
 app.get("/registro", authorization.soloPublico, (req, res) => res.sendFile(__dirname + "/pages/registro.html"));
 app.get("/pagina_usuario", authorization.soloUsuario, (req, res) => res.sendFile(__dirname + "/pages/pagina_usuario.html"));
-
 // Rutas para el backend
-app.post("/api/registro", authentication.registro);
-app.post("/api/login", authentication.login);
+
+app.post("/api/registro", authentication.registro, (req, res) => {
+    // Si la autenticación es exitosa, redirige a la página de login o cualquier otra página
+    res.redirect('/registro'); // Puedes cambiar a otra página después del login, como '/pagina_usuario'
+});
+app.post("/api/login", authentication.login, (req, res) => {
+    // Si la autenticación es exitosa, redirige a la página de login o cualquier otra página
+    res.redirect('/login'); // Puedes cambiar a otra página después del login, como '/pagina_usuario'
+});
 
 
 // Middlewares: Codigo entre el request y el response
+app.use((err, req, res, next) => {
+    console.error(err.stack);
+    res.status(500).send('Algo salió mal!');
+  });
+
+
