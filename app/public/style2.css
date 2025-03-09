@@ -101,13 +101,14 @@
     opacity: 1;
   }
 }
+
 html, body {
   height: 100%;
   margin: 0;
   font-family: Roboto, sans-serif;
   color: #515a6e;
-  background-color: #1c2529;
-  overflow: hidden;
+  background-color: #889E73;
+  /*overflow: hidden;*/
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   display: flex;
@@ -125,16 +126,16 @@ a {
   transition: all 0.3s;
 }
 a:hover {
-  color:#be1b2b;
+  color:#A94A4A;
 }
 
 .fish, .fish-shadow {
-  width: 640px;
-  height: auto;
+  width: 800px;
+  height: 900px;
   position: absolute;
-  top: -145px;
-  left: -177px;
-  animation: fish 3s forwards ease-in-out;
+  top: -250px;
+  left: -170px;
+  animation: fish 2s forwards ease-in-out;
 }
 .fish path, .fish-shadow path {
   fill: #fff;
@@ -160,7 +161,7 @@ a:hover {
   filter: url("#goo");
   opacity: 0.4;
 }
-
+/*la parte de el centro de el formulario*/
 .container {
   position: relative;
   background-color:  #e6e6e6;
@@ -168,7 +169,8 @@ a:hover {
   margin: 40px;
   padding: 25px 20px 10px;
   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
-  width: 320px;
+  width: 400px;
+  height: 430px;
   box-sizing: border-box;
 }
 .container:before {
@@ -186,11 +188,13 @@ a:hover {
 .card {
   position: relative;
   z-index: 2;
+  height: 380px;
 }
 
 .card_title {
   font-size: 24px;
   margin: 0;
+  
 }
 
 .card_title-info {
@@ -209,8 +213,9 @@ a:hover {
   font-weight: 500;
   margin: 25px 0 10px;
   color: #fff;
-  background: linear-gradient(#40775d, #5aa783);
-  box-shadow: 0 2px 12px -3px rgb(53, 223, 90);
+  background-color:#889E73 ;
+  /*background: linear-gradient(#889E73,#1B4D3E );*/
+  box-shadow: 0 1px 3px -0px rgb(27,77,62);
   animation: btn 6s 3s infinite ease-in-out;
   opacity: 0.9;
   -webkit-transition: all 0.3s;
@@ -219,8 +224,8 @@ a:hover {
   transition: all 0.3s;
 }
 .card_button:hover {
-  opacity: 1;
-  box-shadow: 0 2px 2px -3px rgb(5, 72, 1);
+  opacity: 2;
+  box-shadow: 0 2px 2px -3px rgb(5,72,1);/*rgb(27, 77, 62)*/
   cursor: pointer;
 }
 
@@ -232,7 +237,7 @@ a:hover {
   display: flex;
   flex-direction: column-reverse;
   position: relative;
-  padding-top: 10px;
+  padding-top: 20px;
 }
 .input + .input {
   margin-top: 10px;
@@ -253,7 +258,7 @@ a:hover {
   padding: 0;
   z-index: 1;
   background-color: transparent;
-  border-bottom: 2px solid #eee;
+  border-bottom: 2px solid #9b9790;  /*Color de subrayado para descanso*/
   font: inherit;
   font-size: 14px;
   line-height: 30px;
@@ -262,12 +267,13 @@ a:hover {
   outline: 0;
   border-bottom-color: #665856;
 }
-.input_field:focus + .input_label, .input_field:valid + .input_label {
+.input_field:focus+ .input_label ,.input_field:valid + .input_label {
   color: #665856;
+  transform: translateY(-25px);
   -webkit-transform: translateY(-25px);
   -moz-transform: translateY(-25px);
   -ms-transform: translateY(-25px);
-  transform: translateY(-25px);
+  
 }
 
 .input_eye {
@@ -301,7 +307,7 @@ a:hover {
 
 /*# sourceMappingURL=style2.css.map */
 .error{
-  color: rgb(255, 0, 0);
+  color: rgb(105, 11, 34);
   text-align: center;
 }
 .escondido{
