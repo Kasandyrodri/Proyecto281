@@ -9,6 +9,13 @@
 
 body{
     font-family: 'Poppins', sans-serif;
+
+    height: 100%;
+  margin: 0;
+  color: #515a6e;
+  background-color: #e6e6e6;
+  /*overflow: hidden;*/
+
 }
 .container{
     width: 90%;
@@ -35,7 +42,7 @@ body{
     left: 0;
     width: 100%;
     height: 100%;
-    background-image: linear-gradient(180deg, #0000008c 0%,#0000008c 100%),url('../images/panadero_Principal.jpg');
+    background-image: linear-gradient(180deg, #0000008c 0%,#0000008c 100%),url('/app/public/images/florian-delee-P03lWpRRDK8-unsplash.jpg');
     background-size: cover;
     clip-path: polygon(0 0, 100% 0, 100% 80%, 50% 95%, 0 80%);
     z-index: -1;
@@ -108,7 +115,7 @@ body{
 }
 .cta{
     display: inline-block;
-    background-color: #2091f9;
+    background-color: #1B4D3E;
     justify-self: center;
     text-decoration: none;
     padding: 13px 30px;
@@ -155,12 +162,14 @@ body{
 
 /*Knowledge*/
 .knowledge{
-    background-color: #e5e5f7;
-    background-image:  radial-gradient(#444cf7 0.5px, transparent 0.5px), radial-gradient(#444cf7 0.5px, #e5e5f7 0.5px);
-    background-size: 20px 20px;
-    background-position: 0 0,10px 10px;
+    background-color: #889E73;
+opacity: 0.7;
+background-image:  radial-gradient(#1B4D3E 0.55px, transparent 0.55px), radial-gradient(#1B4D3E 0.55px, #889E73 0.55px);
+background-size: 22px 22px;
+background-position: 0 0,11px 11px;
     overflow: hidden;
 }
+
 .knowledge_container{
     display: grid;
     grid-template-columns:1fr 1fr ;
@@ -192,7 +201,7 @@ lo de antes es parala imgtenga un tamño de 500px*/
     align-items: center;
 }
 .price_element{
-    background-color: #e5e5f7;
+    background-color: #889E73;
     text-align: center;
     border-radius: 10px;
     width: 330px;
@@ -206,7 +215,7 @@ lo de antes es parala imgtenga un tamño de 500px*/
 .price_element--best{
     width: 370px;
     padding: 60px 40px;
-    background-color:#ff7143 ;
+    background-color:#A94A4A ;
     --color-plan: rgb(255 255 255/ 75%);  /*Creacion decustom color*/
     --color-price: #fff; 
     --bg-cta: #9f3919;
@@ -244,7 +253,7 @@ lo de antes es parala imgtenga un tamño de 500px*/
     box-shadow: 0 0 1px rgba(0, 0, 0, 0.5) ;
 }
 .testimony{
-    background-color: #e5e5f7;
+    background-color: #889E73;
 }
 .testimony_container{
     display: grid;
@@ -279,7 +288,7 @@ lo de antes es parala imgtenga un tamño de 500px*/
     max-width: 700px;
 }
 .testimony_course{
-    background-color: royalblue;
+    /*background-color: royalblue;*/
     color: #fff;
     display: inline-block;
     padding: 5px;
