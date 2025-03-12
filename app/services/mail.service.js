@@ -1,4 +1,4 @@
-import nodemailer from "nodemailer";
+import nodemailer from "nodemailer"; // Para enviar emails
 import dotenv from "dotenv"
 dotenv.config();
 
@@ -8,8 +8,8 @@ const transporter = nodemailer.createTransport({
     port: 465,
     secure: true,
     auth: {
-        correo: process.env.EMAIL_CORREO,
-        contrasenia: process.env.EMAIL_PASSWORD
+        user: process.env.EMAIL_USER,
+        pass: process.env.EMAIL_PASSWORD
     }
 
 })
@@ -48,7 +48,7 @@ function crearEmailVerificacion(token) {
         <h1>Verificación de correo electrónico - puntoJson.com</h1>
         <p>Se ha creado una cuenta en puntoJson.com con este correo electrónico.</p>
         <p>Si esta cuenta no fue creada por usted, desestime este correo.</p>
-        <p></p>Si usted creó la cuenta, entonces verifique la cuenta <a href="http://localhost:5000/verificar/${token}"
+        <p></p>Si usted creó la cuenta, entonces verifique la cuenta <a href="http://localhost:4000/verificar/${token}"
             target="_blank" rel="noopener noreferrer">haciendo click aquí</a>.</p>
         <p><strong>Calo</strong></p>
         <p>CEO PuntoJson.</p>
