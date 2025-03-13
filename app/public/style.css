@@ -5,6 +5,7 @@
   outline: none;
   box-sizing: border-box;
   font-family: 'Poppins', sans-serif;
+  color: #515a6e;
 }
 html, body{
   display: flex;

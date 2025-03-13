@@ -17,7 +17,7 @@ document.getElementById("login-formulario").addEventListener("submit", async (e)
         })
     });
     if (!res.ok) {
-        const data = await res.JSON();
+        const data = await res.json();
         mensajeError.textContent = data.message;
         return mensajeError.classList.toggle("escondido", false)
     }
