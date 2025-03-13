@@ -15,7 +15,7 @@ export const usuarios = [{
     pais: 'Bolivia',
     ciudad: 'La Paz',
     contrasenia: '$2b$05$AXaVLhsiVwRWD8UlfiBmWuJsD.aHkcO.lCMjn8qbWQdhh7eqxttDS', //Bicen123.0
-    verificado: false
+    verificado: true
 }]
 
 async function login(req, res) {
@@ -142,7 +142,7 @@ function verificarCuenta(req, res) {
         usuarios[indexUsuarioActualizar].verificado = true;
         console.log("USUARIOSVerificar:", usuarios);
         //Generamos la Cookie
-        
+
         res.cookie("jwt", token, cookieOption);
         res.redirect("/");
 
