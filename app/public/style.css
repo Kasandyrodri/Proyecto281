@@ -6,18 +6,23 @@
   box-sizing: border-box;
   font-family: 'Poppins', sans-serif;
 }
-body{
+html, body{
   display: flex;
   align-items: center;
   justify-content: center;
-  min-height: 200vh;
+
   padding: 10px;
-  font-family: 'Poppins', sans-serif;
-  background: linear-gradient(115deg, #be1b2b 10%,#40775d 50%, #714434 90%);
+  height: 100%;
+  margin: 0;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-family: Roboto, sans-serif;
+  color: #515a6e;
+  background-color: #889E73;
 }
 .container{
   max-width: 800px;
-  background: #1c2529;
+  background: #e6e6e6;
   width: 800px;
   padding: 25px 40px 10px 40px;
   box-shadow: 0px 0px 10px rgba(0,0,0,0.1);
@@ -28,7 +33,7 @@ body{
   font-size: 41px;
   font-weight: 600;
   font-family: 'Poppins', sans-serif;
-  background: -webkit-linear-gradient(right, #1c2529, #be1b2b, #714434, #40775d);
+  background: #515a6e;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
@@ -38,13 +43,13 @@ body{
 }
 .container form .form-row{
   display: flex;
-  margin: 32px 0;
+  margin: 22px 0;
   
 }
 form .form-row .input-data{
   width: 100%;
-  height: 40px;
-  margin: 0 20px;
+  height: 41px;
+  margin: 0 5px;
   position: relative;
   
 }
@@ -52,7 +57,7 @@ form .form-row .textarea{
   height: 70px;
 }
 .input-data{
-  background: rgb(170, 133, 86);
+  background: #e6e6e6;
 }
 .input-data input,
 .textarea textarea{
@@ -65,7 +70,7 @@ form .form-row .textarea{
 }
 .input-data input:focus ~ label, .textarea textarea:focus ~ label,
 .input-data input:valid ~ label, .textarea textarea:valid ~ label{
-  transform: translateY(-20px);
+  transform: translateY(-30px);
   font-size: 14px;
   color: #6c8e9c;
 }
@@ -79,31 +84,34 @@ form .form-row .textarea{
   bottom: 5px;
   font-size: 16px;
   transition: all 0.3s ease;
-  background: #fff;
+  background: transparent;
   border-radius: 10px;
   padding: 2px;
+  
   
 }
 .textarea label{
   width: 100%;
   bottom: 40px;
-  background: #fff;
+  background: #e6e6e6;
 }
 .input-data .underline{
   position: absolute;
   bottom: 0;
   height: 2px;
   width: 100%;
+  background-color: #9b9790;
 }
 .input-data .underline:before{
   position: absolute;
   content: "";
   height: 2px;
   width: 100%;
-  background: #3498db;
+  background: #9b9790;
   transform: scaleX(0);
   transform-origin: center;
   transition: transform 0.3s ease;
+  background-color: transparent;
 }
 .input-data input:focus ~ .underline:before,
 .input-data input:valid ~ .underline:before,
@@ -121,8 +129,7 @@ form .form-row .textarea{
   width: 300%;
   position: absolute;
   left: -100%;
-  background: -webkit-linear-gradient(right, #579774, #2c6747, #1b884c, #60de99);
-  transition: all 0.4s;
+  background-color: #889E73;
 }
 .submit-btn .input-data:hover .inner{
   left: 0;
@@ -158,14 +165,14 @@ form .form-row .textarea{
 }
 
 .error{
-  color: rgb(255, 0, 0);
+  color: rgb(105, 11, 34);
   text-align: center;
 }
 .escondido{
   display: none;
 }
 .contrasenia{
-  color: rgb(255, 0, 0);
+  color: rgb(105, 11, 34);
   text-align: left;
 }
 #errorMensaje2{

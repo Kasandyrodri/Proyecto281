@@ -115,7 +115,7 @@ body{
 }
 .cta{
     display: inline-block;
-    background-color: #1B4D3E;
+    background-color: #E07A5F;
     justify-self: center;
     text-decoration: none;
     padding: 13px 30px;
@@ -164,10 +164,10 @@ body{
 /*Knowledge*/
 .knowledge{
     background-color: #889E73;
-opacity: 0.7;
-background-image:  radial-gradient(#1B4D3E 0.55px, transparent 0.55px), radial-gradient(#1B4D3E 0.55px, #889E73 0.55px);
-background-size: 22px 22px;
-background-position: 0 0,11px 11px;
+    /*opacity: 0.7;*/
+    background-image:  radial-gradient(#1B4D3E 0.55px, transparent 0.55px), radial-gradient(#1B4D3E 0.55px, #889E73 0.55px);
+    background-size: 22px 22px;
+    background-position: 0 0,11px 11px;
     overflow: hidden;
 }
 
@@ -216,7 +216,7 @@ lo de antes es parala imgtenga un tamño de 500px*/
 .price_element--best{
     width: 370px;
     padding: 60px 40px;
-    background-color:#A94A4A ;
+    background-color:#E07A5F ;
     --color-plan: rgb(255 255 255/ 75%);  /*Creacion decustom color*/
     --color-price: #fff; 
     --bg-cta: #9f3919;
