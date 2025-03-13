@@ -13,7 +13,7 @@ body{
     height: 100%;
   margin: 0;
   color: #515a6e;
-  background-color: #e6e6e6;
+  background-color: #889E73;
   /*overflow: hidden;*/
 
 }
@@ -163,12 +163,11 @@ body{
 
 /*Knowledge*/
 .knowledge{
-    background-color: #889E73;
-    /*opacity: 0.7;*/
-    background-image:  radial-gradient(#1B4D3E 0.55px, transparent 0.55px), radial-gradient(#1B4D3E 0.55px, #889E73 0.55px);
-    background-size: 22px 22px;
-    background-position: 0 0,11px 11px;
-    overflow: hidden;
+    background-color: #e6e6e6;
+/*opacity: 0.8;*/
+background-image:  radial-gradient(#a8a8a8 0.5px, transparent 0.5px), radial-gradient(#a8a8a8 0.5px, #e6e6e6 0.5px);
+background-size: 20px 20px;
+background-position: 0 0,10px 10px;
 }
 
 .knowledge_container{
@@ -202,7 +201,7 @@ lo de antes es parala imgtenga un tamño de 500px*/
     align-items: center;
 }
 .price_element{
-    background-color: #889E73;
+    background-color: #e6e6e6;
     text-align: center;
     border-radius: 10px;
     width: 330px;
