@@ -199,7 +199,7 @@ a:hover {
 
 .card_title-info {
   font-size: 14px;
-  margin: 7px 0 10px;
+  margin: 10px 0 20px;
 }
 
 .card_button {
@@ -230,50 +230,47 @@ a:hover {
 }
 
 .card_info {
-  font-size: 14px;
+  font-size: 14px; 
 }
 
 .input {
   display: flex;
   flex-direction: column-reverse;
   position: relative;
-  padding-top: 20px;
+  padding-top: 0px;
 }
 .input + .input {
   margin-top: 10px;
 }
 
-.input_label {
-  color: #8597a3;
-  position: absolute;
-  top: 20px;
-  -webkit-transition: all 0.3s;
-  -moz-transition: all 0.3s;
-  -ms-transition: all 0.3s;
-  transition: all 0.3s;
+.input_field {
+    width: 100%;
+    padding: 20px 0px 5px 0px;
+    font-size: 16px;
+    border: 0;
+    z-index: 1;
+    background-color: transparent;
+    border-bottom: 2px solid #9b9790;
+    line-height: 30px;
+    font: inherit;
+    outline: none;
 }
 
-.input_field {
-  border: 0;
-  padding: 0;
-  z-index: 1;
-  background-color: transparent;
-  border-bottom: 2px solid #9b9790;  /*Color de subrayado para descanso*/
-  font: inherit;
-  font-size: 14px;
-  line-height: 30px;
+.input_label {
+    position: absolute;
+    color: #8597a3;
+    left: 0px;
+    top: 15px;
+    padding: 0 5px;
+    transition: 0.3s;
+    pointer-events: none; /* Para que no interfiera con el clic */
 }
-.input_field:focus, .input_field:valid {
-  outline: 0;
-  border-bottom-color: #665856;
-}
-.input_field:focus+ .input_label ,.input_field:valid + .input_label {
-  color: #665856;
-  transform: translateY(-25px);
-  -webkit-transform: translateY(-25px);
-  -moz-transform: translateY(-25px);
-  -ms-transform: translateY(-25px);
-  
+
+.input_field:focus + .input_label,
+.input_field:not(:placeholder-shown) + label {
+    top: -7px;
+    font-size: 13px;
+    color: #665856;
 }
 
 .input_eye {

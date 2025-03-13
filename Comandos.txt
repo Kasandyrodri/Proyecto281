@@ -34,6 +34,7 @@ bloquee las solicitudes entre distintos orígenes si no tienes configurado CORS 
 = Para ejecutar el servidor =
     + npm run dev
 
+////////////////////////////////////////////////////////////////////////////
 = Para enviar emails
     + npm i nodemailer
 ================================

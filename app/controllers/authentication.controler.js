@@ -91,8 +91,8 @@ async function registro(req, res) {
         const salt = await bcryptjs.genSalt(5);
         const hashPassword = await bcryptjs.hash(contrasenia, salt);
 
-        // Enviar el email de verificacion al cliente
-        //const email =  await enviarMailVerificacion(correo, "TOKEN DE PRUEBA");
+        // ===== Enviar el email de verificacion al cliente ===== //
+        const email =  await enviarMailVerificacion(correo, "TOKEN DE PRUEBA");
 
         // Creando el nuevo usuario
         const nuevoUsuario = {
