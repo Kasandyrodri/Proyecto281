@@ -59,14 +59,14 @@ form .form-row .textarea{
 .input-data{
   background: #e6e6e6;
 }
-.input-data input,
-.textarea textarea{
+.input-data input, .textarea textarea{
   display: block;
   width: 100%;
   height: 100%;
   border: none;
   font-size: 17px;
   border-bottom: 2px solid rgba(0,0,0, 0.12);
+  background: transparent;
 }
 .input-data input:focus ~ label, .textarea textarea:focus ~ label,
 .input-data input:valid ~ label, .textarea textarea:valid ~ label{
@@ -74,10 +74,12 @@ form .form-row .textarea{
   font-size: 14px;
   color: #6c8e9c;
 }
+
 .textarea textarea{
   resize: none;
   padding-top: 10px;
 }
+
 .input-data label{
   position: absolute;
   pointer-events: none;
@@ -178,3 +180,54 @@ form .form-row .textarea{
 #errorMensaje2{
   text-align: leftz;
 }
+
+
+
+
+/* Estilos para el select */
+select {
+  width: 100%;
+  height: 41px;
+  padding: 8px 12px;
+  border: none;
+  border-radius: 5px;
+  background-color: #e6e6e6;
+  font-size: 17px;
+  color: #515a6e;
+  font-family: 'Poppins', sans-serif;
+  appearance: none; /* Esto elimina los estilos predeterminados del navegador */
+  -webkit-appearance: none; /* Para Safari */
+  -moz-appearance: none; /* Para Firefox */
+  position: relative;
+}
+
+/* Estilo para el contorno del select */
+select:focus {
+  border-bottom: 2px solid #6c8e9c;
+  outline: none;
+}
+
+/* Flecha personalizada */
+select::-ms-expand {
+  display: none;
+}
+
+.select-container {
+  position: relative;
+}
+
+.select-container::after {
+  content: '▼'; /* Puedes usar cualquier símbolo o imagen */
+  font-size: 14px;
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #515a6e;
+  pointer-events: none;
+}
+
+.input-data select:focus ~ .underline {
+  background-color: #6c8e9c;
+}
+

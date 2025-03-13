@@ -46,16 +46,27 @@
             </div>
             <div class="form-row">
                 <div class="input-data">
-                    <input type="text" name="pais" id="pais" required>
+                    <div class="select-container">
+                        <select name="pais" id="pais" required>
+                            <option value="">Seleccione un país</option>
+                            <!-- Agregar opciones dinámicamente si es necesario -->
+                        </select>
+                    </div>
                     <div class="underline"></div>
-                    <label for="pais">Pais</label>
+                    <!--<label for="pais">Pais</label>-->
                 </div>
                 <div class="input-data">
-                    <input type="text" name="ciudad" id="ciudad" required>
+                    <div class="select-container">
+                        <select name="ciudad" id="ciudad" required>
+                            <option value="">Seleccione una ciudad</option>
+                            <!-- Agregar opciones dinámicamente si es necesario -->
+                        </select>
+                    </div>
                     <div class="underline"></div>
-                    <label for="ciudad">Ciudad</label>
+                    <!--<label for="ciudad">Ciudad</label>-->
                 </div>
             </div>
+            
             <div class="form-row">
                 <div class="input-data">
                     <input type="password" name="constrasenia" id="constrasenia" required>
