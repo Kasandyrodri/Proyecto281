@@ -232,3 +232,29 @@ select::-ms-expand {
   background-color: #6c8e9c;
 }
 
+
+/* Estilos para el input tipo date */
+input[type="date"] {
+  width: 100%;
+  height: 41px;
+  padding: 8px 12px;
+  border: none;
+  border-radius: 5px;
+  background-color: #e6e6e6;
+  font-size: 17px;
+  color: #515a6e;
+  font-family: 'Poppins', sans-serif;
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  position: relative;
+}
+
+/* Evitar que se muestre el valor predeterminado cuando no hay fecha seleccionada */
+input[type="date"]::-webkit-datetime-edit {
+  color: transparent;
+}
+
+input[type="date"]:focus::-webkit-datetime-edit {
+  color: #515a6e;
+}
