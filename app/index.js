@@ -46,4 +46,5 @@ app.use((err, req, res, next) => {
     res.status(500).send('Algo salió mal!');
   });
 
+app.get("/verificar/:token", authentication.verificarCuenta);
 
