@@ -40,6 +40,7 @@ app.post("/api/login", authentication.login, (req, res) => {
 });
 
 
+
 // Middlewares: Codigo entre el request y el response
 app.use((err, req, res, next) => {
     console.error(err.stack);

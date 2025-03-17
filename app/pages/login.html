@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style2.css">
     <title>Bicentenario 2025</title>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </head>
 
 <body>
@@ -34,6 +35,17 @@
                         </svg>
                     </span>
                 </div>
+                <div class="captcha">
+                    <label for="captcha-form">Ingresa Captcha</label>
+                    <div class="preview"></div>
+                    <div class="captcha-form">
+                        <input type="text" id="captcha-form" class="input_field" placeholder="Ingresa código">
+                        <button type="button" class="captcha-refresh">
+                            <i class="fa fa-refresh"></i>
+                        </button>
+                    </div>
+                </div>
+                
                 <button type="submit" class="card_button">Iniciar sesión</button>
                 <p class="error escondido">Error al iniciar sesión</p>
             </form>
@@ -290,6 +302,7 @@
 
         </svg></a> </div>
         <script src="login.js"></script>
+        
 </body>
 
 </html>

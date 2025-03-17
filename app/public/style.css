@@ -45,7 +45,6 @@ html, body{
 .container form .form-row{
   display: flex;
   margin: 22px 0;
-  
 }
 form .form-row .input-data{
   width: 100%;

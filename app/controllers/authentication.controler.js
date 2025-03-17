@@ -22,38 +22,46 @@ async function login(req, res) {
     console.log("async function login\n", req.body);
     const correo = req.body.correo;
     const contrasenia = req.body.contrasenia;
+    const captcha = req.body.captcha;  // CAPTCHA recibido del cliente
 
-    // Verifica que los campos esten llenos
-    if (!correo || !contrasenia) {
-        return res.status(400).send({ status: "Error", message: "Los campos estan incompletos" })
+    // Verifica que los campos estén llenos
+    if (!correo || !contrasenia || !captcha) {
+        return res.status(400).send({ status: "Error", message: "Todos los campos son obligatorios" });
     }
+
     // Verifica si no existe el usuario
     const usuarioARevisar = usuarios.find(usuario => usuario.correo === correo && usuario.verificado);
     if (!usuarioARevisar) {
-        return res.status(400).send({ status: "Error", message: "Error durante el inicio de sesion" });
-    }
-    // Token de autorizacion: Clave para el usuario para autorización
-    const SesionCorrecta = await bcryptjs.compare(contrasenia, usuarioARevisar.contrasenia);
-    if (!SesionCorrecta) {
-        return res.status(400).send({ status: "Error", message: "Error durante el inicio de sesion" });
+        return res.status(400).send({ status: "Error", message: "Error durante el inicio de sesión, usuario no encontrado" });
     }
 
-    // Token para el inicio de sesion: Le da una etiqueta (token) para que ingrese a su cuenta
+    // Verifica el CAPTCHA
+    if (captcha !== req.body.captcha) {
+        return res.status(400).send({ status: "Error", message: "Captcha inválido" });
+    }
+
+    // Verifica la contraseña
+    const SesionCorrecta = await bcryptjs.compare(contrasenia, usuarioARevisar.contrasenia);
+    if (!SesionCorrecta) {
+        return res.status(400).send({ status: "Error", message: "Contraseña incorrecta" });
+    }
+
+    // Generar el token JWT
     const token = jsonwebtoken.sign(
         { correo: usuarioARevisar.correo },
         process.env.JWT_SECRET,
         { expiresIn: process.env.JWT_EXPIRATION });
 
-    // Envio del token por medio de cookie al usuario
+    // Enviar el token como cookie
     const cookieOption = {
         expires: new Date(Date.now() + process.env.JWT_COOKIE_EXPIRES * 24 * 60 * 60 * 1000),
         path: "/"
-    }
-    //Generamos la Cookie
-    res.cookie("jwt", token, cookieOption);
-    res.send({ status: "ok", message: "Usuario Loggeado", redirect: "/pagina_usuario" }); // Enviamos al usuario
+    };
 
+    res.cookie("jwt", token, cookieOption);
+    res.send({ status: "ok", message: "Usuario logueado", redirect: "/pagina_usuario" });
 }
+
 
 async function registro(req, res) {
     console.log("async function registro\n", req.body);
@@ -156,4 +164,19 @@ export const methods = {
     login,
     registro,
     verificarCuenta
+}
+
+//para captcha
+export function soloUsuario(req, res, next) {
+    if (!req.cookies.jwt) {
+        return res.redirect('/login');  // Si no hay token, redirige a login
+    }
+    // Si hay un token, verifica su validez
+    jsonwebtoken.verify(req.cookies.jwt, process.env.JWT_SECRET, (err, decoded) => {
+        if (err) {
+            return res.redirect('/login'); // Si el token es inválido, redirige a login
+        }
+        req.usuario = decoded;  // Decodifica la información del token
+        next();  // Si es válido, continúa con la ejecución
+    });
 }

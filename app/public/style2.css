@@ -170,7 +170,7 @@ a:hover {
   padding: 25px 20px 10px;
   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
   width: 400px;
-  height: 430px;
+  height: 480px;
   box-sizing: border-box;
 }
 .container:before {
@@ -247,7 +247,7 @@ a:hover {
 
 .input_field {
     width: 100%;
-    padding: 20px 0px 5px 0px;
+    padding: 11px 0px 5px 0px;
     font-size: 16px;
     border: 0;
     z-index: 1;
@@ -311,4 +311,42 @@ a:hover {
 }
 .escondido{
   display: none;
+}
+
+/*Para el codigo Captcha*/
+
+.captcha .preview{
+  color: #555;
+  width: 100%;
+  text-align: center;
+  height: 40px;
+  line-height: 40px;
+  letter-spacing: 8px;
+  border: 1px dashed #888;
+  font-family: "monospace";
+}
+
+.captcha .preview .span{
+  display: inline-block;
+  user-select: none;
+}
+.captcha .captcha-form{
+  display: flex;
+
+}
+.captcha .captcha-form input{
+  width: 100%;
+  padding: 8px;
+  border: 1px solid #888;
+}
+.captcha .captcha-form .captcha-refresh{
+  width: 40px;
+  border: none;
+  outline: none;
+  background: #888;
+  color: #eee;
+  cursor: pointer;
+}
+.captcha-input {
+  height: 10px;
 }
