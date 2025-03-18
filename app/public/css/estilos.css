@@ -253,7 +253,7 @@ lo de antes es parala imgtenga un tamño de 500px*/
     box-shadow: 0 0 1px rgba(0, 0, 0, 0.5) ;
 }
 .testimony{
-    background-color: #889E73;
+    background-color: #e6e6e6;
 }
 .testimony_container{
     display: grid;
@@ -289,7 +289,7 @@ lo de antes es parala imgtenga un tamño de 500px*/
 }
 .testimony_course{
     /*background-color: royalblue;*/
-    color: #fff;
+    color: #5454d4;
     display: inline-block;
     padding: 5px;
 }

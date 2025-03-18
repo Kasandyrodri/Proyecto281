@@ -40,12 +40,12 @@ app.post("/api/login", authentication.login, (req, res) => {
 });
 
 
-
 // Middlewares: Codigo entre el request y el response
 app.use((err, req, res, next) => {
     console.error(err.stack);
     res.status(500).send('Algo salió mal!');
   });
+
 
 app.get("/verificar/:token", authentication.verificarCuenta);
 
