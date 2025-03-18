@@ -2,7 +2,7 @@
 
 const mensajeError = document.getElementsByClassName("error")[0];
 
-document.getElementById("login-formulario").addEventListener("submit", async (e) =>{
+document.getElementById("login-formulario").addEventListener("submit", async (e) => {
     e.preventDefault();
     const correo_form = document.getElementById("correo").value;
     const contrasenia_form = document.getElementById("contrasenia").value;
@@ -17,8 +17,8 @@ document.getElementById("login-formulario").addEventListener("submit", async (e)
     // Conectando al Backend
     const res = await fetch("http://localhost:4000/api/login", {
         method: "POST",
-        headers:{
-            "Content-Type" : "application/json"
+        headers: {
+            "Content-Type": "application/json"
         },
         body: JSON.stringify({
             correo : correo_form,
@@ -32,15 +32,25 @@ document.getElementById("login-formulario").addEventListener("submit", async (e)
         return mensajeError.classList.toggle("escondido", false);
     }
     const resJson = await res.json();
-    if(resJson.redirect){
+    if (resJson.redirect) {
         window.location.href = resJson.redirect;
     }
 
 
-    
 });
+function mostrarContrasenia() {
+    const constrasenia = document.getElementById("contrasenia");
+    const ojo = document.getElementById("ojo");
 
-
+    if (constrasenia.type === "password") {
+        constrasenia.type = "text";
+        ojo.src = "images/eye-open.svg"; // Cambia a la imagen de ojo abierto
+    } else {
+        constrasenia.type = "password";
+        ojo.src = "images/eye-close.svg"; // Cambia a la imagen de ojo cerrado
+        
+    }
+}
 //Para el captcha
 document.addEventListener("DOMContentLoaded", function () {
     const fonts = ["cursive", "sans-serif", "serif", "monospace"];

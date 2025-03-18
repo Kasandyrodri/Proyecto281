@@ -1,11 +1,37 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Recuperar Contraseña</title>
+    <link rel="stylesheet" href="style.css">
+
 </head>
+
 <body>
-    
+    <div class="container">
+        <div class="text">
+            ¿Olvidaste tu contraseña? 
+        </div>
+        <form action="#" id="olvidasteContrasenia">
+            <div class="form-row">
+                <div class="input-data">
+                    <input type="email" name="correo_form" id="correo_form" required>
+                    <div class="underline"></div>
+                    <label for="correo_form">Ingrese su correo electronico</label>
+                </div>
+            </div>
+            <p class="error escondido">Error al iniciar sesión</p>
+        <div class="form-row submit-btn">
+            <div class="input-data">
+                <div class="inner"></div>
+                <input type="submit" value="Recuperar">
+            </div>
+        </div>
+        </form>
+    </div>
+    <script src="recuperarContrasenia.js"></script>
 </body>
+
 </html>

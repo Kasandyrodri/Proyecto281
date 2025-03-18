@@ -16,6 +16,7 @@ function soloPublico(req, res, next) {
     if (!logueado) return next();
     return res.redirect("/pagina_usuario");
 }
+
 function revisarCookie(req) {
     try {
         const cookieJWT = req.headers.cookie.split("; ").find(cookie => cookie.startsWith("jwt=")).slice(4);
@@ -32,6 +33,10 @@ function revisarCookie(req) {
         return false;
     }
 }
+function restablecerContrasenia(){
+    return res.redirect("/recuperar_contrasenia");
+}
+
 export const methods = {
     soloUsuario,
     soloPublico,

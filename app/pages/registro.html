@@ -12,7 +12,7 @@
 <body>
     <div class="container">
         <div class="text">
-            Registrate 
+            Registrate
         </div>
         <form action="#" id="registro-formulario">
             <div class="form-row">
@@ -38,10 +38,22 @@
                     <div class="underline"></div>
                     <label for="correo">Correo Electronico</label>
                 </div>
-                <div class="input-data">
+                <div class="input-data2">
                     <input type="date" name="fecha_nacimiento" id="fecha_nacimiento" required>
                     <div class="underline"></div>
                     <label for="fecha_nacimiento">Fecha de nacimiento</label>
+                </div>
+                <div class="input-data">
+                    <div class="select-container">
+                        <select name="genero" id="genero" required>
+                            <option value="valor_1" selected>Seleccione su genero</option>
+                            <option value="valor_2">Masculino</option>
+                            <option value="valor_3">Femenino</option>
+                            <option value="valor_4">Prefiero no decirlo</option>
+                        </select>
+                    </div>
+                    <div class="underline"></div>
+                    <!--<label for="genero">Genero</label>-->
                 </div>
             </div>
             <div class="form-row">
@@ -66,28 +78,36 @@
                     <!--<label for="ciudad">Ciudad</label>-->
                 </div>
             </div>
-            
+
             <div class="form-row">
                 <div class="input-data">
                     <input type="password" name="constrasenia" id="constrasenia" required>
                     <div class="underline"></div>
                     <label for="constrasenia">Contraseña</label>
                     <p class="error escondido" id="errorMensaje2">Validacion de contraseña</p>
+                    <!-- Ojo -->
+                    <span class="input_eye" onclick="mostrarContrasenia()">
+                        <img id="ojo1" src="images/eye-close.svg" width="25px">
+                    </span>
                 </div>
                 <div class="input-data">
                     <input type="password" name="repite_contrasenia" id="repite_contrasenia" required>
                     <div class="underline"></div>
                     <label for="repite_contrasenia">Repite la contrasenia</label>
                     <p class="error escondido" id="errorMensaje">Las contraseñas no coinciden</p>
+                    <!-- Ojo -->
+                    <span class="input_eye" onclick="mostrarContraseniaRepetida()">
+                        <img id="ojo2" src="images/eye-close.svg" width="25px">
+                    </span>
                 </div>
             </div>
             <p class="error escondido">Error al iniciar sesión</p>
-        <div class="form-row submit-btn">
-            <div class="input-data">
-                <div class="inner"></div>
-                <input type="submit" value="registrar">
+            <div class="form-row submit-btn">
+                <div class="input-data">
+                    <div class="inner"></div>
+                    <input type="submit" value="registrar">
+                </div>
             </div>
-        </div>
         </form>
     </div>
     <script src="validacionesContrasenia.js"></script>

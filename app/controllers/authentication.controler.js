@@ -1,7 +1,7 @@
 import bcryptjs from "bcryptjs"; // Para encriptar los datos
 import jsonwebtoken from "jsonwebtoken"; // Para generar token
 import dotenv from "dotenv"; // Genera variables de entorno, que no estaran a la vista del usuario final
-import { enviarMailVerificacion } from "../services/mail.service.js"; // exportamos las funciones de mail.service.js
+import { enviarMailRecuperacion, enviarMailVerificacion } from "../services/mail.service.js"; // exportamos las funciones de mail.service.js
 
 dotenv.config(); // Para acceder a las variables de entorno:
 
@@ -19,7 +19,6 @@ export const usuarios = [{
 }]
 
 async function login(req, res) {
-    console.log("async function login\n", req.body);
     const correo = req.body.correo;
     const contrasenia = req.body.contrasenia;
     const captcha = req.body.captcha;  // CAPTCHA recibido del cliente
@@ -64,7 +63,6 @@ async function login(req, res) {
 
 
 async function registro(req, res) {
-    console.log("async function registro\n", req.body);
     const nombre = req.body.nombre;
     const paterno = req.body.paterno;
     const materno = req.body.materno
@@ -99,9 +97,9 @@ async function registro(req, res) {
             process.env.JWT_SECRET,
             { expiresIn: process.env.JWT_EXPIRATION });
 
+        console.log('usuarios:', usuarios);
         // ===== Enviar el email de verificacion al cliente ===== //
         const email = await enviarMailVerificacion(correo, tokenVerificacion);
-        console.log("email:\n", email);
 
         if (email.accepted.length === 0) {
             return res.status(500).send({ status: "error", message: "Error al enviar el email de verificación" });
@@ -115,8 +113,8 @@ async function registro(req, res) {
             verificado: false
         }
         usuarios.push(nuevoUsuario);
-        console.log("USUARIOS:", usuarios); //  ============== Cambiar para la base de datos
-        return res.status(201).send({ status: "ok", message: `Usuario ${nuevoUsuario.nombre} creado`, redirect: "/login" });
+        console.log('usuarios:', usuarios);
+        return res.status(201).send({ status: "ok", message: `Usuario ${nuevoUsuario.nombre} creado, por favor, verifique la cuenta desde su correo electronico`, redirect: "/login" });
     }
 
 }
@@ -148,10 +146,10 @@ function verificarCuenta(req, res) {
         // Actualizamos la variable de verificado para que pueda ingresar el usuario.
         const indexUsuarioActualizar = usuarios.findIndex(usuario => usuario.correo === decodificada.correo);
         usuarios[indexUsuarioActualizar].verificado = true;
-        console.log("USUARIOSVerificar:", usuarios);
         //Generamos la Cookie
 
         res.cookie("jwt", token, cookieOption);
+        console.log("USUARIO VERIFICADO")
         res.redirect("/");
 
     } catch (err) {
@@ -160,10 +158,72 @@ function verificarCuenta(req, res) {
     }
 }
 
+async function verificarContrasenia(req, res) {
+    const correo = req.body.correo;
+
+    // Verificar que existe el correo en la base de datos (si no existe el usuario)
+    const usuarioARevisar = usuarios.find(usuario => usuario.correo === correo);
+    if (!usuarioARevisar) {
+        return res.status(400).send({ status: "Error", message: "El usuario no esta registrado!!" });
+    }
+    // Generar un token de recuperación de contraseña
+    const tokenVerificacion = jsonwebtoken.sign(
+        { correo: correo },
+        process.env.JWT_SECRET,
+        { expiresIn: process.env.JWT_EXPIRATION });
+
+    // Configurar el transporte de Nodemailer
+    // ===== Enviar el email de verificación al cliente ===== //
+    try {
+        const email = await enviarMailRecuperacion(correo, tokenVerificacion);
+        if (email.accepted.length === 0) {
+            return res.status(500).json({ status: "Error", message: "Error al enviar el email de verificación" });
+        }
+
+        // Respuesta de éxito, se envió el correo
+        return res.json({ status: "Success", message: "Se le envió un email a su correo para restablecer su contraseña" });
+    } catch (error) {
+        console.error("Error al enviar el correo: ", error);
+        return res.status(500).json({ status: "Error", message: "Hubo un problema al enviar el correo" });
+    }
+
+}
+async function cambiarContrasenia(req, res) {
+    try {
+        const token = req.body.token; // Ahora recuperamos el token desde el cuerpo de la solicitud
+
+        if (!token) {
+            return res.status(400).json({ success: false, message: 'Token no proporcionado' });
+        }
+
+        // Verificamos el token
+        const decodificada = jsonwebtoken.verify(token, process.env.JWT_SECRET);
+        if (!decodificada || !decodificada.correo) {
+            return res.json({ status: "error", message: "Error del token" });
+        }
+
+        // Actualizamos la variable de verificado para que pueda ingresar el usuario.
+        const indexUsuarioActualizar = usuarios.findIndex(usuario => usuario.correo === decodificada.correo);
+
+        // Encriptando la contrasenia del usuario: Encriptando 5 veces
+        const salt = await bcryptjs.genSalt(5);
+        const hashPassword = await bcryptjs.hash(req.body.contrasenia, salt);
+
+        // Cambiando la contrasenia del usuario
+        usuarios[indexUsuarioActualizar].contrasenia = hashPassword;
+        return res.json({ status: "Success", message: "Contraseña cambiada con éxito :D" });
+
+    } catch (err) {
+        return res.json({ status: "error", message: "Error al cambiar la contraseña" });
+    }
+}
+
 export const methods = {
     login,
     registro,
-    verificarCuenta
+    verificarCuenta,
+    verificarContrasenia,
+    cambiarContrasenia
 }
 
 //para captcha
