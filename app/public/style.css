@@ -29,15 +29,17 @@ html, body{
   box-shadow: 0px 0px 10px rgba(0,0,0,0.1);
   border-radius: 20px;
 }
-.container .text{
+.container .text {
   text-align: center;
-  font-size: 41px;
   font-weight: 600;
+  font-size: 41px;
   font-family: 'Poppins', sans-serif;
   background: #515a6e;
-  -webkit-background-clip: text;
+  background-clip: text; /* Estándar */
+  -webkit-background-clip: text; /* Para compatibilidad con navegadores basados en WebKit */
   -webkit-text-fill-color: transparent;
 }
+
 .container form{
   padding: 30px 0 0 0;
   border-radius: 100px;
