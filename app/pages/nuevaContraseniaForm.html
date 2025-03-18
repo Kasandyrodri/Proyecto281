@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     <style>
         @import url('https://fonts.googleapis.com/css?family=Poppins:400,500,600,700&display=swap');
-        
+
         * {
             margin: 0;
             padding: 0;
@@ -50,7 +50,10 @@
             font-size: 41px;
             font-family: 'Poppins', sans-serif;
             background: #515a6e;
+            background-clip: text;
+            /* Estándar */
             -webkit-background-clip: text;
+            /* Para compatibilidad con navegadores basados en WebKit */
             -webkit-text-fill-color: transparent;
         }
 
@@ -183,15 +186,16 @@
         }
 
         @media (max-width: 700px) {
-            *{
+            * {
                 margin: 0;
                 padding: 0px 40px;
                 outline: none;
                 box-sizing: border-box;
                 font-family: 'Poppins', sans-serif;
                 color: #515a6e;
-                
+
             }
+
             .container .text {
                 font-size: 30px;
             }
@@ -202,7 +206,7 @@
 
             .container form .form-row {
                 display: block;
-                
+
             }
 
             form .form-row .input-data {
