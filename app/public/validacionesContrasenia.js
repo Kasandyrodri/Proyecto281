@@ -1,4 +1,3 @@
-console.log("Entro a validadcion contraseña");
 const contrasenia = document.getElementById("constrasenia");
 const confirmaContrasenia = document.getElementById("repite_contrasenia");
 
@@ -43,3 +42,30 @@ function validarContrasenia() {
 
 contrasenia.addEventListener("input", validarContrasenia);
 contrasenia.addEventListener("blur", validarContrasenia);
+
+function mostrarContrasenia() {
+    const constrasenia = document.getElementById("constrasenia");
+    const ojo = document.getElementById("ojo1");
+
+    if (constrasenia.type === "password") {
+        constrasenia.type = "text";
+        ojo.src = "images/eye-open.svg"; // Cambia a la imagen de ojo abierto
+    } else {
+        constrasenia.type = "password";
+        ojo.src = "images/eye-close.svg"; // Cambia a la imagen de ojo cerrado
+        
+    }
+}
+function mostrarContraseniaRepetida() {
+    const constrasenia = document.getElementById("repite_contrasenia");
+    const ojo = document.getElementById("ojo2");
+
+    if (constrasenia.type === "password") {
+        constrasenia.type = "text";
+        ojo.src = "images/eye-open.svg"; // Cambia a la imagen de ojo abierto
+    } else {
+        constrasenia.type = "password";
+        ojo.src = "images/eye-close.svg"; // Cambia a la imagen de ojo cerrado
+        
+    }
+}

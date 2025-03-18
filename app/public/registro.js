@@ -37,8 +37,9 @@ document.getElementById("registro-formulario").addEventListener("submit", async 
         return mensajeError.classList.toggle("escondido", false)
     };
     const resJson = await res.json();
-    if (resJson.redirect){
-        window.location.href = resJson.redirect;
+    if (resJson.message){
+        alert(resJson.message);
+        window.location.href = '/';
     }
 });
 
