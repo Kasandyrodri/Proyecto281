@@ -1,207 +1,298 @@
-@import url("https://fonts.googleapis.com/css?family=Oswald|Roboto");
-@keyframes btn {
-  0%, 100% {
-    transform: scale(1);
-  }
-  70% {
-    transform: scale(1);
-  }
-  80% {
-    transform: scale(1.04);
-  }
-  90% {
-    transform: scale(0.96);
-  }
-}
-@keyframes fish {
-  0%, 70% {
-    opacity: 0;
-  }
-  100% {
-    opacity: 1;
-  }
-}
-html, body {
-  height: 100%;
+@import url('https://fonts.googleapis.com/css?family=Poppins:400,500,600,700&display=swap');
+*{
   margin: 0;
-  font-family: Roboto, sans-serif;
+  padding: 0;
+  outline: none;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
   color: #515a6e;
-  background-color: #d5eafc;
-  overflow: hidden;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+}
+html, body{
   display: flex;
   align-items: center;
   justify-content: center;
-}
 
-a {
-  cursor: pointer;
-  color: #000;
-  text-decoration: none;
-  transition: all 0.3s;
-}
-a:hover {
-  color: rgb(255, 80, 80);
-}
-
-.fish, .fish-shadow {
-  width: 640px;
-  height: auto;
-  position: absolute;
-  top: -145px;
-  left: -177px;
-  animation: fish 3s forwards ease-in-out;
-}
-.fish path, .fish-shadow path {
-  fill: #fff;
-}
-.fish path:hover, .fish-shadow path:hover {
-  fill: #ff6100;
-}
-.fish .line, .fish-shadow .line {
-  fill: none;
-}
-
-.fish-shadow-con {
-  opacity: 0.2;
-  filter: blur(10px);
-  position: absolute;
-  top: 0;
-  left: 0;
-}
-
-.fish-shadow {
-  top: -125px;
-  left: -157px;
-  filter: url("#goo");
-  opacity: 0.4;
-}
-
-.container {
-  position: relative;
-  background-color: #fafafe;
-  border-radius: 10px;
-  margin: 40px;
-  padding: 25px 20px 10px;
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
-  width: 320px;
-  box-sizing: border-box;
-}
-.container:before {
-  content: "";
-  position: absolute;
-  left: 0;
-  bottom: 0;
-  right: 0;
-  height: 60%;
-  background-color: #fafafe;
-  border-radius: 10px;
-  z-index: 2;
-}
-
-.card {
-  position: relative;
-  z-index: 2;
-}
-
-.card_title {
-  font-size: 24px;
+  padding: 10px;
+  height: 100%;
   margin: 0;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-family: Roboto, sans-serif;
+  color: #515a6e;
+  background-color: #889E73;
 }
-
-.card_title-info {
-  font-size: 14px;
-  margin: 7px 0 10px;
+.container{
+  max-width: 800px;
+  background: #e6e6e6;
+  width: 800px;
+  padding: 25px 40px 10px 40px;
+  box-shadow: 0px 0px 10px rgba(0,0,0,0.1);
+  border-radius: 20px;
 }
-
-.card_button {
-  border-radius: 4px;
-  border: none;
-  outline: none;
-  width: 100%;
-  padding: 0 15px;
-  font-size: 18px;
-  line-height: 36px;
-  font-weight: 500;
-  margin: 25px 0 10px;
-  color: #fff;
-  background: linear-gradient(#ff6100, rgb(255, 80, 80));
-  box-shadow: 0 2px 12px -3px rgb(255, 80, 80);
-  animation: btn 6s 3s infinite ease-in-out;
-  opacity: 0.9;
-  transition: all 0.3s;
+.container .text{
+  text-align: center;
+  font-size: 41px;
+  font-weight: 600;
+  font-family: 'Poppins', sans-serif;
+  background: #515a6e;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
-.card_button:hover {
-  opacity: 1;
-  box-shadow: 0 2px 2px -3px rgb(255, 80, 80);
+.container form{
+  padding: 30px 0 0 0;
+  border-radius: 100px;
 }
-
-.card_info {
-  font-size: 14px;
-}
-
-.input {
+.container form .form-row{
   display: flex;
-  flex-direction: column-reverse;
+  margin: 22px 0;
+}
+form .form-row .input-data{
+  width: 100%;
+  height: 41px;
+  margin: 0 5px;
   position: relative;
+  
+}
+form .form-row .textarea{
+  height: 70px;
+}
+.input-data{
+  background: #e6e6e6;
+}
+.input-data input, .textarea textarea{
+  display: block;
+  width: 100%;
+  height: 100%;
+  border: none;
+  font-size: 17px;
+  border-bottom: 2px solid rgba(0,0,0, 0.12);
+  background: transparent;
+}
+.input-data input:focus ~ label, .textarea textarea:focus ~ label,
+.input-data input:valid ~ label, .textarea textarea:valid ~ label{
+  transform: translateY(-30px);
+  font-size: 14px;
+  color: #6c8e9c;
+}
+
+.textarea textarea{
+  resize: none;
   padding-top: 10px;
 }
-.input + .input {
-  margin-top: 10px;
-}
 
-.input_label {
-  color: #8597a3;
+.input-data label{
   position: absolute;
-  top: 20px;
-  transition: all 0.3s;
+  pointer-events: none;
+  bottom: 5px;
+  font-size: 16px;
+  transition: all 0.3s ease;
+  background: transparent;
+  border-radius: 10px;
+  padding: 2px;
+  
+}
+.textarea label{
+  width: 100%;
+  bottom: 40px;
+  background: #e6e6e6;
+}
+.input-data .underline{
+  position: absolute;
+  bottom: 0;
+  height: 2px;
+  width: 100%;
+  background-color: #9b9790;
+}
+.input-data .underline:before{
+  position: absolute;
+  content: "";
+  height: 2px;
+  width: 100%;
+  background: #9b9790;
+  transform: scaleX(0);
+  transform-origin: center;
+  transition: transform 0.3s ease;
+  background-color: transparent;
+}
+.input-data input:focus ~ .underline:before,
+.input-data input:valid ~ .underline:before,
+.textarea textarea:focus ~ .underline:before,
+.textarea textarea:valid ~ .underline:before{
+  transform: scale(1);
+}
+.submit-btn .input-data{
+  overflow: hidden;
+  height: 45px!important;
+  width: 25%!important;
+}
+.submit-btn .input-data .inner{
+  height: 100%;
+  width: 300%;
+  position: absolute;
+  left: -100%;
+  background-color: #889E73;
+}
+.submit-btn .input-data:hover .inner{
+  left: 0;
+}
+.submit-btn .input-data input{
+  background: none;
+  border: none;
+  color: #fff;
+  font-size: 17px;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  cursor: pointer;
+  position: relative;
+  z-index: 2;
+}
+@media (max-width: 700px) {
+  *{
+    margin: 0;
+    padding: 0px 50px;
+    outline: none;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+    color: #515a6e;
+  }
+  .container .text{
+    font-size: 30px;
+  }
+  .container form{
+    padding: 10px 0 0 0;
+  }
+  .container form .form-row{
+    display: block;
+  }
+  form .form-row .input-data{
+    margin: 35px 0!important;
+  }
+  .submit-btn .input-data{
+    width: 40%!important;
+  }
 }
 
-.input_field {
-  border: 0;
-  padding: 0;
-  z-index: 1;
-  background-color: transparent;
-  border-bottom: 2px solid #eee;
-  font: inherit;
+.error{
+  color: rgb(105, 11, 34);
+  text-align: center;
+}
+.escondido{
+  display: none;
+}
+.contrasenia{
+  color: rgb(105, 11, 34);
+  text-align: left;
+}
+#errorMensaje2{
+  text-align: leftz;
+}
+
+
+
+
+/* Estilos para el select */
+select {
+  width: 100%;
+  height: 41px;
+  padding: 8px 12px;
+  border: none;
+  border-radius: 5px;
+  background-color: #e6e6e6;
+  font-size: 17px;
+  color: #515a6e;
+  font-family: 'Poppins', sans-serif;
+  appearance: none; /* Esto elimina los estilos predeterminados del navegador */
+  -webkit-appearance: none; /* Para Safari */
+  -moz-appearance: none; /* Para Firefox */
+  position: relative;
+}
+
+/* Estilo para el contorno del select */
+select:focus {
+  border-bottom: 2px solid #6c8e9c;
+  outline: none;
+}
+
+/* Flecha personalizada */
+select::-ms-expand {
+  display: none;
+}
+
+.select-container {
+  position: relative;
+}
+
+.select-container::after {
+  content: '▼'; /* Puedes usar cualquier símbolo o imagen */
   font-size: 14px;
-  line-height: 30px;
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #515a6e;
+  pointer-events: none;
 }
-.input_field:focus, .input_field:valid {
-  outline: 0;
-  border-bottom-color: #665856;
+
+.input-data select:focus ~ .underline {
+  background-color: #6c8e9c;
 }
-.input_field:focus + .input_label, .input_field:valid + .input_label {
-  color: #665856;
-  transform: translateY(-25px);
+
+
+/* Estilos para el input tipo date */
+input[type="date"] {
+  width: 100%;
+  height: 41px;
+  padding: 8px 12px;
+  border: none;
+  border-radius: 5px;
+  background-color: #e6e6e6;
+  font-size: 17px;
+  color: #515a6e;
+  font-family: 'Poppins', sans-serif;
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  position: relative;
+}
+
+/* Evitar que se muestre el valor predeterminado cuando no hay fecha seleccionada */
+input[type="date"]::-webkit-datetime-edit {
+  color: transparent;
+}
+
+input[type="date"]:focus::-webkit-datetime-edit {
+  color: #515a6e;
 }
 
 .input_eye {
   position: absolute;
   bottom: 0;
-  right: 0;
-  width: 36px;
+  right: 10px;
+  width: 25px;
   height: 30px;
   display: flex;
   align-items: center;
   justify-content: center;
+  cursor: pointer;
+  z-index: 1;
 }
-.input_eye svg {
-  width: 24px;
-  height: auto;
-  stroke: #8597a3;
+.input-data2 input{
+  background: #e6e6e6;  
+  width: 100%;
+  height: 41px;
+  margin: -25px 12px;
+  position: relative;
+  display: block;
+  width: 92%;
+  height: 100%;
+  border: none;
+  font-size: 17px;
+  border-bottom: 2px solid rgba(0,0,0, 0.12);
+  background: transparent;
+  top: 28px;
 }
-
-.link {
-  position: absolute;
-  bottom: 20px;
-  right: 20px;
-  z-index: 3;
+.input-data2 label{
+  font-size: 13px;
+  padding: 1px 0px;
 }
-
-.rabbit {
-  width: 50px;
-  height: 50px;
-  fill: #fff;
-}/*# sourceMappingURL=style.css.map */
